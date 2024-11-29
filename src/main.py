@@ -1,9 +1,6 @@
 """
-Iterates through data files in a specified folder and stores specified variables into a pandas dataframe.
+Script which iterates through data files in a specified folder and stores specified variables into a pandas dataframe. The ion density `ni0` and triple product `triplepro` is calculated from the averages. This dataframe is exported as a `.csv`.
 Assumes filenaming convention follows "P{}_B{}_I{}_N{}.mat"
-1. Specify directory in `directory`
-2. Specify variables to record in list.
-3. Run
 """
 import scipy.io
 import pandas as pd
@@ -27,7 +24,7 @@ df = pd.DataFrame(columns=columns)
 
 # Iterate through files in specified directory #
 rows = []
-for filename in os.listdir(directory)[:3]:
+for filename in os.listdir(directory):
     try:
         file_string = os.path.join(directory, filename).replace('\\','/')   # example string: 'data/P1_B1_Idefault_Ndefault.mat'
         dataset = scipy.io.loadmat(file_string)
@@ -37,21 +34,21 @@ for filename in os.listdir(directory)[:3]:
     pnbi_input = float(filename.split('_')[0][1:])                          # PNBI input assuming file-naming convection 
 
     # Calculate average and standard deviation between index 50 and 100 for each variable specified
-    row = [pnbi_input, ]
+    row = [pnbi_input]
     for var in variables:   
         var_avg, var_std = get_average(50, 100, index=var, dataset=dataset)
         row.extend([var_avg, var_std])
     rows.append(row)
-    ti0err = np.sqrt((row[4]/row[5])**2 + (row[6]/row[7])**2)
-    print(ti0err)
 
 df = pd.concat([df, pd.DataFrame(rows, columns=columns)], ignore_index=True)
-    
+df = df.sort_values(by='pnbi_input').reset_index(drop=True)
+
 # Calculate ti0, tripleproduct, and their standard deviations #
 df['ti0'] = df['te0'] * df['tite']
-df['ti0_std'] = np.linalg.norm([df['te0']/df['te0_std'], df['tite']/df['tite_std']], axis=0)
+df['ti0_std'] = df['ti0'] * np.linalg.norm([df['te0_std']/df['te0'], df['tite_std']/df['tite']], axis=0)
 
 df['tripleprod'] = df['ni0'] * df['ti0']*df['taue']
-df['tripleprod_std'] = np.linalg.norm([df['ni0']/df['ni0_std'], df['ti0']/df['tite_std'], df['taue']/df['taue_std']], axis=0)
+df['tripleprod_std'] = df['tripleprod'] * np.linalg.norm([df['ni0_std']/df['ni0'], df['tite_std']/df['tite'], df['taue_std']/df['taue']], axis=0)
 
 print(df)
+df.to_csv("averages.csv", index=False)  
