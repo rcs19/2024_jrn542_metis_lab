@@ -1,4 +1,5 @@
 # MCF Lab: METIS
+### [GitHub Repository Link](https://github.com/rcs19/2024_jrn542_metis_lab)
 
 We have control over four parameters,
 - PNBI Power Neutral Beam Injection 
