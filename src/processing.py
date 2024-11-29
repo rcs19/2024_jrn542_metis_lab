@@ -2,7 +2,6 @@ import scipy.io
 import numpy as np
 from matplotlib import pyplot as plt
 
-full_dataset = scipy.io.loadmat("data/P20_B1_Idefault_Ndefault.mat")    
 
 def list_subsections():
     print("subsections (I'm using zerod by default):")
@@ -24,6 +23,7 @@ def get_average(start, end, index, subsection='zerod'):
     return (np.mean(a[start:end]), np.std(a[start:end]))
 
 if __name__ == "__main__":
+    full_dataset = scipy.io.loadmat("data/P20_B1_Idefault_Ndefault.mat")    
     list_subsections()
     list_indexes()
     print("(Mean,Std) =",get_average(50, 100, 'taue'))
