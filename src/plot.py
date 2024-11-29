@@ -1,7 +1,7 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-df = pd.read_csv('averages.csv')
+df = pd.read_csv('example_averages.csv')
 
 xdata = df['pnbi']
 ydatas = ['ni0','ti0','taue','tripleprod']
