@@ -6,9 +6,9 @@ We have control over four parameters,
 - $T_P$ plasma current (poloidal field)
 - $\bar{n}$
 
-and our end goal is to figure out the triple product, $n_iT_i\tau$. 
+and our end goal is to figure out the triple product, $n_iT_i\tau_e$. 
 
-The dependent variables we are interested in are $n_i$, $T_i$ and $\Tau_E$. Other variables we may be interested in is the safety factor, plasma $\beta$, mode-H.
+The dependent variables we are interested in are $n_i$, $T_i$ and $\tau_e$. Other variables we may be interested in is the safety factor, plasma $\beta$, mode-H.
 
 ## Scripts
 ### processing.py
