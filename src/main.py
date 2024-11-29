@@ -1,5 +1,5 @@
 """
-Script which iterates through data files in a specified folder and stores specified variables into a pandas dataframe. The ion density `ni0` and triple product `triplepro` is calculated from the averages. This dataframe is exported as a `.csv`.
+Script which iterates through data files in a specified folder and stores specified variables into a pandas dataframe. The ion density `ni0` and triple product `tripleprod` is calculated from the averages. This dataframe is exported as a `.csv`.
 Assumes filenaming convention follows "P{}_B{}_I{}_N{}.mat"
 """
 import scipy.io
