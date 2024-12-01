@@ -2,3 +2,5 @@ data/
 data_P1-P10/
 src/__pycache__/
 P3.5_B1_Idefault_Ndefault.mat.bak
+averages_with1to10integers.csv
+averages.csv
