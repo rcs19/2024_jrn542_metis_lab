@@ -16,10 +16,9 @@ fig, ax = plt.subplots(len(ydatas), sharex=True)
 for i, var in enumerate(ydatas):
     ydata = df[var]
     yerr = df[f'{var}_std']
-    ax[i].plot(xdata,ydata,label='Average')
+    # ax[i].scatter(xdata,ydata,label='Average', s=6, color="red",zorder=5)
 
-    # Plot error as shaded region 
-    ax[i].fill_between(xdata,ydata-yerr,ydata+yerr, alpha=0.2, label='Standard Deviation') 
+    ax[i].errorbar(xdata, y=ydata, yerr=yerr, label='Average', ecolor="black", capsize=2, zorder=1) 
     ax[i].set_ylabel(var)
     
 ax[0].set_title('Parameters vs B0')
