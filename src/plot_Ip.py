@@ -21,7 +21,7 @@ for i, var in enumerate(ydatas):
     ax[i].errorbar(xdata, y=ydata, yerr=yerr, label='Average', ecolor="black", capsize=2, zorder=1) 
     ax[i].set_ylabel(var)
     
-ax[0].set_title('Parameters vs I$_P$')
+ax[0].set_title('Varying I$_P$')
 ax[-1].set_xlabel('I$_P$ (T)')
 plt.legend()
 plt.subplots_adjust(hspace=0)
