@@ -42,3 +42,4 @@ The dependent variables we are interested in are $n_i$, $T_i$ and $\tau_e$. Othe
 
 - Peak in tripleproduct is the change from L-mode to H-mode. We don't see the peak in our graph because B is too low (1T) and we're actually already in H-mode. 
 - ICRH (ion cyclotron resonance heating) is the rest of the power (neutral beam injection). Spike is happening around 0, decrease ICRH. ICHR injects microwave radiation which should be resonant with the particles for heating.
+- The short plataeu bump as investigated by Conor is due to a slight change in magnetic field. 
