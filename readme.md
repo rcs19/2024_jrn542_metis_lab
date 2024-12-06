@@ -37,3 +37,8 @@ The dependent variables we are interested in are $n_i$, $T_i$ and $\tau_e$. Othe
     - Steeper gradient from centre to walls.
 - You are producing graphs because you have questions to answer. 
 - 3.5 NBPI output power registers as 0 as investigated by Emir -> no heating whatsoever.     
+
+### 06/12/2024
+
+- Peak in tripleproduct is the change from L-mode to H-mode. We don't see the peak in our graph because B is too low (1T) and we're actually already in H-mode. 
+- ICRH (ion cyclotron resonance heating) is the rest of the power (neutral beam injection). Spike is happening around 0, decrease ICRH. ICHR injects microwave radiation which should be resonant with the particles for heating.
