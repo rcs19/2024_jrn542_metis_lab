@@ -22,7 +22,7 @@ for i, var in enumerate(ydatas):
     ax[i].set_ylabel(var)
     
 ax[0].set_title('Varying I$_P$')
-ax[-1].set_xlabel('I$_P$ (T)')
+ax[-1].set_xlabel('I$_P$ (MA)')
 plt.legend()
 plt.subplots_adjust(hspace=0)
 plt.show()
