@@ -10,8 +10,8 @@ import os
 from processing import get_average
 
 # Parameters #
-directory = 'data/b0_1-4'                           # Filepath
-variables = ['q0','pnbi','ni0','te0','tite','taue','betan','pohm','q0']  # Variables to record (must be valid variables names in the data)
+directory = 'data/nbar_1-5'                           # Filepath
+variables = ['modeh','q0','pnbi','ni0','te0','tite','taue','betan','pohm','q0']  # Variables to record (must be valid variables names in the data)
 
 # Create list of columns for DataFrame
 columns = ['input']
@@ -31,7 +31,7 @@ for filename in os.listdir(directory):
     except:
         print(f"Error: {file_string} is probably corrupted or you have incorrectly entered directory.")
 
-    input = float(filename.split('_')[1][1:])                          # PNBI input assuming file-naming convection 
+    input = float(filename.split('_')[3][1:-4])                          # PNBI input assuming file-naming convection 
 
     # Calculate average and standard deviation between index 50 and 100 for each variable specified
     row = [input]
@@ -51,4 +51,4 @@ df['tripleprod'] = df['ni0'] * df['ti0']*df['taue']
 df['tripleprod_std'] = df['tripleprod'] * np.linalg.norm([df['ni0_std']/df['ni0'], df['tite_std']/df['tite'], df['taue_std']/df['taue']], axis=0)
 
 print(df)
-df.to_csv("b0_averages_q.csv", index=False)  
+df.to_csv("nbar_averages_q.csv", index=False)  
